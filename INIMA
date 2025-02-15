@@ -1,0 +1,60 @@
+import turtle # turtle librarie folosim toata
+
+#turtle initializatiom
+broasca =turtle.Turtle()#broasca este un nume
+
+for i in range(1):# 3 laturi
+    broasca.forward(20)
+    broasca.left(90)
+    broasca.forward(20)
+    broasca.right(90)
+    broasca.forward(20)
+    broasca.left(90)
+    broasca.forward(20)
+    broasca.right(90)
+    broasca.forward(40)
+    broasca.right(90)
+    broasca.forward(20)
+    broasca.left(90)
+    broasca.forward(20)
+    broasca.right(90)
+    broasca.forward(40)
+
+for i in range(4):
+    broasca.right(90)
+    broasca.forward(20)
+    broasca.left(90)
+    broasca.forward(20)
+
+for i in range(1):
+    broasca.right(90)
+    broasca.forward(20)
+    broasca.right(90)
+    broasca.forward(20)
+    broasca.left(90)
+    broasca.forward(20)
+    broasca.right(90)
+    broasca.forward(20)
+for i in range(3):
+    broasca.left(90)
+    broasca.forward(20)
+    broasca.right(90)
+    broasca.forward(20)
+for i in range(1):
+    broasca.forward(20)
+    broasca.right(90)
+    broasca.forward(20)
+    broasca.left(90)
+    broasca.forward(20)
+    broasca.right(90)
+    broasca.forward(40)
+    broasca.right(90)
+    broasca.forward(20)
+    broasca.left(90)
+    broasca.forward(20)
+    broasca.right(90)
+    broasca.forward(20)
+
+
+turtle.exitonclick()# cand apesi  pe clik iese din program
+turtle.done()#termin
