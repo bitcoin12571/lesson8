@@ -83,8 +83,7 @@ stinrg
  # print(f'the circumference of cicle  is :{circumference}'
 
 --------------------------------------------------------------------------------------------------------------------------
-
-"""for i in range(1,11):
+for i in range(1,11):
    if i == 4:
        continue # Trece mai Departe
    if i == 7:
@@ -193,3 +192,31 @@ if __name__ == "__main__":
        except ValueError:
            print("Wrong Input!!! Try Again \n")
            continue
+       if choice == 1:
+           player_choice['X'] = cur_player
+           if cur_player == player1:
+               player_choice['O'] = player2
+           else:
+               player_choice['O'] = player1
+       elif choice == 2:
+           player_choice['O'] = cur_player
+           if cur_player == player1:
+               player_choice['X'] = player2
+           else:
+               player_choice['X'] = player1
+
+       elif choice == 3:
+           print("Final Score")
+           print_scoreboard(score_board)
+           break
+       else:
+           print("Wrong Choice!!! Try Again\n")
+       winner = single_game(options[choice -1])
+       if winner != 'D':
+           player_won = player_choice[winner]
+           score_board[player_won] = score_board[player_won] + 1
+       print_scoreboard(score_board)
+       if cur_player == player1:
+           cur_player = player2
+       else:
+           cur_player = player1
