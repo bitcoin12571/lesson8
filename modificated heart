@@ -1,0 +1,61 @@
+import turtle # turtle librarie folosim toata
+
+#turtle initializatiom
+broasca =turtle.Turtle()#broasca este un nume
+broasca.color("gray","red")
+broasca.begin_fill()
+for i in range(1):
+    broasca.forward(20)
+    broasca.left(90)
+    broasca.forward(20)
+    broasca.right(90)
+    broasca.forward(20)
+    broasca.left(90)
+    broasca.forward(20)
+    broasca.right(90)
+    broasca.forward(40)
+    broasca.right(90)
+    broasca.forward(20)
+    broasca.left(90)
+    broasca.forward(20)
+    broasca.right(90)
+    broasca.forward(40)
+
+for i in range(4):
+    broasca.right(90)
+    broasca.forward(20)
+    broasca.left(90)
+    broasca.forward(20)
+
+for i in range(1):
+    broasca.right(90)
+    broasca.forward(20)
+    broasca.right(90)
+    broasca.forward(20)
+    broasca.left(90)
+    broasca.forward(20)
+    broasca.right(90)
+    broasca.forward(20)
+for i in range(3):
+    broasca.left(90)
+    broasca.forward(20)
+    broasca.right(90)
+    broasca.forward(20)
+for i in range(1):
+    broasca.forward(20)
+    broasca.right(90)
+    broasca.forward(20)
+    broasca.left(90)
+    broasca.forward(20)
+    broasca.right(90)
+    broasca.forward(40)
+    broasca.right(90)
+    broasca.forward(20)
+    broasca.left(90)
+    broasca.forward(20)
+    broasca.right(90)
+    broasca.forward(20)
+broasca.end_fill()
+
+turtle.exitonclick()# cand apesi  pe clik iese din program
+turtle.done()#termin
