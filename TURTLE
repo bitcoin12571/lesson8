@@ -1,0 +1,14 @@
+import turtle#librarie
+
+igf=turtle.Turtle()#igf punem un nume
+igf.getscreen().bgcolor("red")# ce culoare sa fie screen
+
+igf.color("yellow","yellow")
+igf.begin_fill()
+igf.speed(10)
+
+for i in range(100):
+    igf.forward(180)
+    igf.left(130)
+igf.end_fill()
+turtle.done()
