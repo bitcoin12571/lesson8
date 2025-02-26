@@ -1,0 +1,44 @@
+import turtle
+
+def draw_heart():
+    window = turtle.Screen()
+    window.bgcolor("white")
+
+    # Create turtle
+    heart = turtle.Turtle()
+    heart.color("red")
+    heart.pensize(3)
+    heart.speed(5)
+
+    # Move turtle to starting position
+    heart.penup()
+    heart.goto(0, -100)
+    heart.pendown()
+
+    # Draw the heart shape
+    heart.begin_fill()
+    heart.left(140)
+    heart.forward(224)
+    for _ in range(200):
+        heart.right(1)
+        heart.forward(2)
+    heart.left(120)
+    for _ in range(200):
+        heart.right(1)
+        heart.forward(2)
+    heart.forward(224)
+    heart.end_fill()
+
+    # Write message
+    heart.penup()
+    heart.goto(0, 50)
+    heart.color("black")
+    heart.write("ANYA", align="center", font=("Arial", 24, "bold"))
+
+    # Hide turtle
+    heart.hideturtle()
+
+    window.mainloop()
+
+if __name__ == "__main__":
+    draw_heart()
