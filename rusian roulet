@@ -1,0 +1,13 @@
+import random
+win = random.randint(1,64)
+Answer = input(str("Enter the number:"))
+Life = True
+while Life:
+    if Answer== win:
+        print("you lose ")
+        Life = False
+        break
+
+    else:
+        print("you have one more change")
+    Answer=int(input("Enter number "))
