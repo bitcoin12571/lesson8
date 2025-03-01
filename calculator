@@ -1,0 +1,94 @@
+from kivy.app import App
+from kivy.lang.builder import Builder
+
+
+class Calculator(App):
+   def build(self):
+       return Builder.load_file("Design.kv")
+Aplicatie = Calculator()
+Aplicatie.run()
+
+
+
+Design.kv
+GridLayout:
+    id: calculator
+    display: entry
+    rows: 6
+    padding: 10
+    spacing: 10
+    BoxLayout:
+        TextInput:
+            id:entry
+            front_size: 50
+            multiline: False
+    BoxLayout:
+        spacing: 10
+        Button:
+            text:"1"
+            font_size: 50
+            on_press: entry.text +=self.text
+        Button:
+            text:"2"
+            font_size: 50
+            on_press: entry.text +=self.text
+
+        Button:
+            text:"3"
+            font_size: 50
+            on_press: entry.text +=self.text
+        Button:
+            text:"-"
+            font_size: 50
+            on_press: entry.text +=self.text
+    BoxLayout:
+        spacing: 10
+        Button:
+            text:"4"
+            font_size: 50
+            on_press: entry.text +=self.text
+        Button:
+            text:"5"
+            font_size: 50
+            on_press: entry.text +=self.text
+        Button:
+            text:"6"
+            font_size: 50
+            on_press: entry.text +=self.text
+        Button:
+            text:"+"
+            font_size: 50
+            on_press: entry.text +=self.text
+
+    BoxLayout:
+        spacing: 10
+        Button:
+            text:"7"
+            font_size: 50
+            on_press: entry.text +=self.text
+        Button:
+            text:"8"
+            font_size: 50
+            on_press: entry.text +=self.text
+        Button:
+            text:"9"
+            font_size: 50
+            on_press: entry.text +=self.text
+        Button:
+            text:"*"
+            font_size: 50
+            on_press: entry.text +=self.text
+    BoxLayout:
+        spacing: 10
+        Button:
+            text:"0"
+            font_size: 50
+            on_press: entry.text +=self.text
+        Button:
+            text:"/"
+            font_size: 50
+            on_press: entry.text +=self.text
+        Button:
+            text:"="
+            font_size: 50
+            on_press: entry.text =str(eval(entry.text))
