@@ -1,4 +1,4 @@
-import turtle
+iimport turtle
 
 def draw_heart():
     window = turtle.Screen()
@@ -33,7 +33,7 @@ def draw_heart():
     heart.penup()
     heart.goto(0, 50)
     heart.color("black")
-    heart.write("ANYA", align="center", font=("Arial", 24, "bold"))
+    heart.write("Salut ", align="center", font=("Arial", 24, "bold"))
 
     # Hide turtle
     heart.hideturtle()
