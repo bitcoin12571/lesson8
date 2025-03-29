@@ -1,0 +1,16 @@
+/*import "./styles.css";
+let a = 1;
+let b = 6;
+let c = 3;
+let d = 4;
+/*console.log(a + b == 7 && b + c == 9);// && (and)
+console.log(a != 2 && b != 2);
+let a = 2;
+let b = 3;
+console.log(a < 10 && b > 1);*/
+let day = 2;
+if (day == 1) {
+  console.log("luni");
+} else if (day == 2) {
+  console.log("marti");
+}
