@@ -1,0 +1,86 @@
+AGE = 10
+name = "maxim"
+is_student=True
+price = 10.03
+
+print (type(AGE),type(name),type (is_student),type(price))
+
+name = "maxim"
+age = 17
+height =180.0
+is_student=True
+print("my name is "+str(name) +str(age))
+
+price = 20.5
+FloatConverted=int(price)
+print(FloatConverted)
+
+price = 20.5
+ConvertedtoFloat=int(price)
+print(ConvertedtoFloat)
+
+
+print(bool(1))
+print(bool(0))
+
+
+
+print (2-1)
+print(2+10)
+print(9*2)
+print(9/2)
+print(8//3)#fara rest ne da
+print(13%2)#restul
+print(13**2)#la a 2
+
+
+result =2+3.0
+print(result)
+print(type(result))
+
+print("=======================================================================")
+print(5<10)
+print(10>20)
+print(10!=10)
+print(10==10)
+print("=========================================")
+print(10>20 and 10<20)
+
+print(10>20 or 10<20)# indentifica care este adevarata
+print("========================================")
+print(not 7>2)
+
+fruit ="apple"
+number =5
+print( "i have "+str(fruit)+" "+str(number))
+
+
+
+
+print(4+3)
+print("3"+"4")
+
+age = 10
+print("you are "+str(age )+" "+"years old")
+
+x= 10
+y=10.04
+z=x+y
+print(z)
+print(type(z))
+
+
+
+a = "8"
+b="4"
+print(int(a),int(b))
+
+
+a= 3.9
+inta=int(a)
+print (inta , type(inta))
+
+
+a=30
+b=5
+print("your toatal is :",a+b)
