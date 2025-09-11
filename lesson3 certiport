@@ -1,0 +1,77 @@
+word = "hello"
+print(word)
+print(word[0])
+print(word[-2])
+print(word[-1])
+print(len(word))
+
+print(word[1]+word[4])
+name ="python"
+print(name[len(name)-1])
+
+
+greeetimg ="hi there "
+print(greeetimg[2])
+
+world = "python"
+print(world [0:4])
+
+worlds = "elephant "
+print(worlds[0:3])
+
+
+worldss = "banana"
+print(worldss[:3])
+
+worldss1 = "banana"
+print(worldss1[3:6])
+worldss11 = "banana"
+print(worldss11[:])
+print(worldss11[2:2])
+
+
+name = "maxim"
+print(name.upper())
+name1="MAXIM"
+print(name1.lower())
+
+war = "salut "
+print(war.capitalize())
+
+werd = "rered"
+print(werd.count("e"))
+
+popo = "mama "
+print(popo.replace("m","t"))
+
+
+world3 = "experience "
+print(len(world3))
+
+world6 = "python "
+print(world6.capitalize())
+
+color = "greeen grass"
+print(color.replace("greeen", "blue").count("e"))
+wert = "wow"
+print(wert.upper())
+
+fruit = "Banana"
+print(fruit.lower() ,fruit.replace("a", "@"))
+
+sentece  = "The talest tree in the forest"
+print(sentece.count("t"))
+
+
+
+fruits = ["apple ","banana","cherry"]
+print(fruits)
+mixt = ["banana",20, True]
+print(mixt)
+
+
+
+foods = ["pizza ","sushi", "borsh", "lazania ","somon"]
+print(foods,foods[1],foods[3: 5])
+print (len(foods))
+print(len(foods[4]))
