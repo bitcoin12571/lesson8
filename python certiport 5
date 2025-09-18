@@ -1,0 +1,69 @@
+"""fruits {"apple ", "grape","banana" ,"cherry"}#tuple
+vegetables = {"cherry ", "donut" "apple"}
+print(fruits|vegetables) # uniunea
+print( fruits & vegetables)#intersectia
+print(fruits-vegetables)#diferenta
+print(fruits^vegetables)
+print(vegetables^fruits) #diferenta simetriala
+"""
+color ={ "blue","red"}
+color.add("yellow")
+print(color)
+
+numbers= {1,2,3}
+numbers.remove(3)
+print(numbers)
+
+pet = {"dog","cat","mouse","birds","cow"}# in caz ca vrem sa add un
+print( len(pet))
+
+a = {"cat","dog"}
+b = {"rabit","dog"}
+print(a|b)
+print(a-b)
+print(a^b)
+
+print(13/4)
+print(13//4)
+print(-4*1.)
+
+a = 10
+a+=2
+a/=2
+a//=4
+a%=2
+print(a)
+
+x = 9
+x/=2
+x%=4
+
+#== comparare
+
+# 3==3.0 True
+print("==========================================")
+print("Maxim">"Danu")# litere
+print(True ==1)
+print (3<4<=5)
+print("==========================================")
+x = 20
+y = 9
+print(x>=10)
+print(y>=10)
+print("==========================================")
+print("home"<"out")
+
+
+#and macar daca una e falsa apu returneaza false
+#or iners la and
+#not inverseaza
+print(10>2 and 2<1)
+print(10>2   or 2<1)
+
+
+x = 2
+y = 3
+print(10<x and 10>y and 10<x or 10<y and x!=2)
+
+                         
+
