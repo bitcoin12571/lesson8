@@ -1,0 +1,18 @@
+'''flag = False
+if flag:
+    print("Yes")
+else:
+    print("no")
+
+
+score = 31
+if score >=90:
+    print("excelentr")
+elif score>=70:
+    print("greate job")
+elif score >=50:
+    print("passed")
+else :
+    print("ehh")
+    
+    '''
