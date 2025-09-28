@@ -1,0 +1,114 @@
+'''x = 1
+while  x<5:
+    print(x)
+    x+=1
+a = 2
+while a<10:
+    print(a)
+    a+=2
+    
+
+while True:
+    entry = input("enter a password")
+    if entry=="python":
+        print("ACCES ")
+        break
+    else:
+        print("try again")
+
+for number in range(1,6):
+    if number==3:#pe 3 il sare
+        continue
+    print(number)
+
+for i in range (5):
+    pass
+
+x = 0
+while x<3:
+    x+=1
+    if x==2:
+        pass
+    print(x)
+
+for i in range (1,10):
+    if i==7:
+        break
+    print(i)
+
+c = 1
+while c<10:
+    if i==7:
+        break
+    print(c)
+
+a = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+]
+for row in a :
+    for value in row:
+        print(value)
+
+    for row in range (100000):
+        for col in range (100000):
+            print("loh", end=" ")
+        print()
+
+s = 0
+array =[
+    [1,2,3],
+    [4,5,6]
+]
+sum = 0
+sum1 = 0
+mult = 1
+
+for row in array :
+    for value in row:
+        if value%2==0:
+            s+=value
+print("total=",s)
+def great():
+    print("hi")
+great()
+
+def great2(name):
+    print(f"hello {name}")
+great2("sofia")
+
+def diference(a, b):
+    return a-b
+result = diference(5,4)
+print(result)
+    
+def word(c):
+    print("hello")
+
+
+def squer(c):
+    return c**2
+result = squer(5)
+print(result)
+
+L = int(input("introdu lungime "))
+l = int(input("introdu latimea"))
+n = l*L
+def area (n):
+    return n
+result= area(n)
+print(result)
+'''
+
+d = int(input("entter temperature "))
+def temperature_message():
+    if d<10:
+        print("cold")
+    elif d<10 and d>25:
+        print("moderate ")
+    elif d<25:
+        print("hot")
+    else:
+        print("nothing ")
+temperature_message()
