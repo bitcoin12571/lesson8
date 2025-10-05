@@ -1,0 +1,20 @@
+
+f = open("text.txt","w")
+f.write("Salut, lume")
+f.close()
+
+
+with open("text.txt","w") as f:
+    f.write("idk")
+    
+import os
+if os.path.exists("text.txt"):
+    print("file exist")
+else:
+    print("fisierul nu exista")
+
+if os.path.exists("text2.txt"):
+    os.remove("text2.txt")
+    print("fisierul sters cu succes ")
+    
+
