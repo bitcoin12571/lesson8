@@ -1,0 +1,46 @@
+
+class Student:
+    def __init__(self,name,age,height,weight):
+        self.name= name
+        self.age = age
+        self.height = height
+        self.weight = weight
+student_1 =Student("Danu",18,"180","80")
+print(student_1.name,student_1.age,student_1.height,student_1.weight)
+'''def __str__(self): 
+    return  f"student name :{self.name} and he is {self.age} he has {self.height} feet ang{self.weight}"
+print(__str__(self=student_1))
+del student_1.name# stergem
+
+class Student:
+    def __init__(self,subject, name,age ):
+        self.subject = subject
+        self.name = name
+        self.age = age
+def __str__(self):
+    return f"studne name is {self.name},and fav subject is {self.subject}"
+student_ = Student("math ","Ana")
+print(__str__(self=student_))
+'''
+print(hasattr(student_1, "age")) #verifcia daca avem un atribut
+subject = getattr(student_1 ,"age")# atributul reia ce am scris
+print(subject)
+text = getattr(student_1,"level","not asign") # mai adauga o valoare care am puso def si la consola o sa ne daie valoarea lui level ca fiind noit asign
+print(text)
+
+setattr(student_1,"name","Maxim")# schimbat din danu in maxim
+print(student_1.name)
+
+print(vars(student_1))#printeza ca dictionar
+
+
+class person:
+    def __init__(self,name):
+        self.name = name
+n = person("Emma")
+print(n.name)
+
+
+
+
+
