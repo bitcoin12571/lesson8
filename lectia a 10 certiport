@@ -1,0 +1,134 @@
+n = 5
+try:
+    result =n/0
+    print(result)
+except ZeroDivisionError:
+    print("ZeroDivisionError: division by zero")
+
+user_input = "abc"
+try:
+    number = int(user_input)
+except ValueError:
+    print("ValueError: invalid literal for int() with base 10: 'abc'"
+          "")
+
+
+print("====================================================================================")
+text = "total"
+value = 2000
+try:
+    print(text+value)
+except TypeError:
+    print("type error ")
+
+list=["mar","par","banana"]
+try :
+    print(list[6])
+except IndexError:
+    print("idkdjnbntgngu")
+
+print("====================================================================================")
+dict = {
+    "name":"Andrei",
+    "age":"15",
+
+}
+try:
+    print(dict["surname"])
+except KeyError:
+    print("KeyError: 'surname'")
+
+print("====================================================================================")
+
+x = 1
+try:
+    x.apend(5)
+except AttributeError:
+    print("salut")
+
+
+print("====================================================================================")
+text = "salut"
+try:
+    nr = int(text)
+except ValueError:
+    print("eroare de valoare ")
+
+    print("====================================================================================")
+
+data = [ 10,"five",3]
+for value in data:
+    try:
+        value *=2
+
+    except IndentationError:
+        print("daffffgggtv")
+
+
+print("====================================================================================")
+
+
+try :
+    print("running code ")
+except:
+    print("an error code ")
+finally:
+    print("done ")
+print("====================================================================================")
+
+n = 5
+try:
+    result =n/0
+    print(result)
+except ZeroDivisionError:
+    print("ZeroDivisionError: division by zero")
+finally:
+    print("done")
+
+print("====================================================================================")
+
+try:
+    file = open("text.txt", "r")
+    content =file.read
+    print(content)
+except:
+    print("file exception")
+finally:
+    print("done ")
+
+
+
+print("====================================================================================")
+try:
+    user = int(input("enter a number "))
+    if user==int:
+            print("you enter a number")
+
+except ValueError:
+    print("invalid  input")
+finally:
+    print("maladet")
+
+while True:
+    try:
+        n = int(input("enter 0 "))
+        if n==0:
+            print("you enter a 0 0")
+            break
+        else:
+            print("you enter something else ")
+    except ValueError:
+        print("wrong ")
+
+age = -10
+if age<0:
+    raise ValueError("age cannot be negative")
+
+
+n = 101
+try:
+    if n>100:
+        raise ValueError("number is higher")
+    print("Value is acceptable")
+except ValueError as e:
+    print("error",e)
