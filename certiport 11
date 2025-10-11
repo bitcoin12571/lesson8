@@ -12,19 +12,19 @@ print(student_1.name,student_1.age,student_1.height,student_1.weight)
 print(__str__(self=student_1))
 del student_1.name# stergem
 
-class Student:
-    def __init__(self,subject, name,age ):
-        self.subject = subject
-        self.name = name
-        self.age = age
-def __str__(self):
-    return f"studne name is {self.name},and fav subject is {self.subject}"
+elf.name},and fav subject is {self.subject}"
 student_ = Student("math ","Ana")
 print(__str__(self=student_))
 '''
 print(hasattr(student_1, "age")) #verifcia daca avem un atribut
 subject = getattr(student_1 ,"age")# atributul reia ce am scris
-print(subject)
+print(subject)class Student:
+    def __init__(self,subject, name,age ):
+        self.subject = subject
+        self.name = name
+        self.age = age
+def __str__(self):
+    return f"studne name is {s
 text = getattr(student_1,"level","not asign") # mai adauga o valoare care am puso def si la consola o sa ne daie valoarea lui level ca fiind noit asign
 print(text)
 
@@ -39,7 +39,18 @@ class person:
         self.name = name
 n = person("Emma")
 print(n.name)
-
+class Student:
+    def __init__(self,name,age,subject):
+        self.name  = name
+        self.age = age
+        self.subject = subject
+    def __str__(self):
+        return f"Student(name) = {self.name},age ={self.age}, subject = {self.subject}"
+    def study(self):
+        return f"{self.name} is studying {self.subject}"
+s = Student("Maxim",18,"math")
+print(s)
+print(s.study())
 
 
 
