@@ -1,0 +1,47 @@
+import math
+print(math.sqrt(25))
+print(math.sqrt(2))
+print("=================================")
+print(math.sqrt(0))
+print("=================================")
+print(pow(2,2))
+print("=================================")
+print(pow(2,100))
+print("=================================")
+print(pow(2,2/3))
+print("=================================")
+print(math.floor(4.20))
+print("=================================")
+print(math.ceil(4.90))
+print("=================================")
+print(math.e)
+print("=================================")
+print(math.fabs(-10))
+print(abs(10))
+print("=================================")
+print(math.factorial(9))
+print("=================================")
+print(math.trunc(4.9))# returneaza nr fara zecimala sa
+print(math.trunc(-4.9))
+print("=================================")
+print(math.ceil(4.9))# rotunjeste la +infinit
+print("=================================")
+print(math.exp((2)))
+print("=================================")
+print(math.exp(1))
+print("=================================")
+print(math.log(100,10))
+
+r = int(input("enter a raza cercului"))
+a = math.pi*pow(r,2)
+print(a)
+
+'''
+n = input("enter a number")
+if n==0:
+    print("error")
+else:
+    r = math.sqrt(n)
+    print(f"{r}")
+
+'''
