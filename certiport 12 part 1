@@ -1,0 +1,58 @@
+    '''import os
+os.mkdir - crearea folder
+os.makedirs - crearea folder in folder
+os.getcwd - folderul curent
+os.chdir - (path)
+sys.exit
+class Person:
+    def __init__(self,name ):
+        self.name  = name
+    def greet(self):
+        return f"hello my name is {self.name}"
+class Student(Person):
+    def study(self):
+        return f"{self.name} is studying "
+s = Student("Maxim")
+p = Person("Allow")
+print(s.greet())
+print(p.greet())
+print(s.study())
+'''
+from pydoc import describe
+
+
+class Person:
+    def __init__(self,name ):
+        self.name  = name
+class Student(Person):
+    def __init__(self, name ,subject ):
+        super().__init__(name)
+        self.subject = subject
+s = Student("Maxim","math")
+p = Person("Allow")
+print(s.name)
+print(p.name)
+
+
+class dog:
+    def speak(self):
+        return"bark"
+class cat:
+    def speak(self):
+        return "miau"
+class birds:
+    def speak(self):
+        return "chahr"
+animals =[ dog(),cat(),birds()]
+for i in animals:
+    print(i.speak())
+
+
+
+class car:
+    def __init__(self,speed,name ):
+        self.speed = speed
+        self.name = name
+c = car(150,"Toyota")
+print(f"{c.name} is speeding {c.speed}at a hour")
+
