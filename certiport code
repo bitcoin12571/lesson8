@@ -1,0 +1,23 @@
+str ftime
+Code       Meaning                     example 
+%d         day(zero-padded)            30
+%m         mounth (zero-padded)        07
+%Y         Year (4 - digital)          2025
+%y         Year (2-digit)              25
+%B         Full mouth name             July
+%b         Abbreviated nounth          Jul
+%A         Full weekday name           Wednesday
+%a         Abbreviated weekday         Wed
+str ptime
+Code       Meaning                     example
+%H         Hour                        03:   
+%M         Minute                      :45
+%S         second                      43
+
+
+Operation          example 			
+add 10 days     date +timedelta (days - 10)
+subtract3 weeks     date - timedelta(weeks -10)
+add 90 minutes     datetime + timedelta(minutes - 90)
+time difference between two dates  date2 - date1 -> returns a timedelta
+get total seconds in duration      delta>total_seconds()
