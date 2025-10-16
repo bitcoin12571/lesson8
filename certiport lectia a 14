@@ -1,0 +1,52 @@
+'''now = datetime.datetime.now()
+print(now)
+today = datetime.date.today()
+print("===============================================================================")
+print(today.year)
+print(today.month)
+print(today.day)
+print("===============================================================================")
+Today = datetime.date.today()
+formatted = today.strftime("%d/%Y/%m")
+print(formatted)
+print("===============================================================================")
+d = datetime(2025,7,30)
+forward = d.strftime("%d/%m/%Y")
+print(forward)
+print("===============================================================================")
+forward2 = d.strftime("%m/%d/%Y")
+print(forward2)
+print("===============================================================================")
+forward3 = d.strftime("%a/%b/%d")
+print(forward3)
+print("===============================================================================")
+forward4 = d.strftime("%Y/%m/%d")
+print(forward4)
+print("===============================================================================")
+date_string = "2025-10-10"
+date_obj = datetime.datetime.strptime(date_string,"%Y-%m-%d")
+print(date_obj)
+only_date =date_obj.date()#.time doar ora
+print(only_date)
+
+date_string1 = "30/07/2025"
+date_obj1 = datetime.datetime.strptime(date_string1,"%d/%m/%Y")
+only_date1 =date_obj1.date()
+print(only_date1)
+
+date_string2 = "Jul 30 2025"
+date_obj2 = datetime.datetime.strptime(date_string2,"%b %d %Y")
+only_date =date_obj2.date()
+only_date2 = date_obj2.date()
+print(only_date2)
+'''
+import datetime
+today = datetime.date.today()  # Obține data curentă
+next_week = today + datetime.timedelta(days=7)  # Adaugă 7 zile
+print(next_week)
+
+start  =datetime.date(2025,7,1)
+end  = datetime.date(2025,9,1)
+delta = end - start
+print(delta)
+
