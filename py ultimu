@@ -1,0 +1,50 @@
+"""
+apple
+"""
+
+class Item():
+    def __init__(self , number):
+        self.number= number
+    def saveroundednumber(self,value):
+        print(f" saved {value}") #2f 2 valori
+Items = [Item(1.9),Item(1.9)]
+for item in Items:
+    truncated = int(item.number)
+    item.saveroundednumber(truncated)
+
+def multiply(a,b):
+    return  a*b
+print(multiply())
+print(multiply(10,4))
+
+
+
+SAT = int(input("enter  sat score :"))
+ACT = int(input("enter act score "))
+if SAT >1400 or ACT> 29:
+    print("$20000")
+elif SAT >1200 or ACT >24:
+    print("10000")
+elif SAT > 900 or ACT >21:
+    print("5000")
+else:
+    print("homeless")
+
+
+
+
+x = item.getValue()
+variableType = None
+variableType  = type(x)
+print(variableType)
+
+
+
+
+
+
+
+
+
+
+
