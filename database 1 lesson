@@ -1,0 +1,17 @@
+CREATE DATABASE SCHOOL 
+USE SCHOOL
+
+CREATE TABLE Student(
+	StudentId INT PRIMARY KEY,--UNIQUE IDENTIFIER
+	FirstName NVARCHAR (50),
+	LastName NVARCHAR (50),
+	Age INT
+);
+INSERT INTO Student(StudentId,FirstName,LastName,Age)
+VALUES(1, 'Maxim','Placinta',18),
+	(2 ,'Nichita','Munteanu',20),
+	(3, 'Gabi','Pascarul ',30),
+	(4, 'David','Cat',40),
+	(5, 'Nicoleta','Bujac',10)
+SELECT StudentId ,FirstName ,LastName ,Age FROM  Student 
+SELECT * FROM Student
