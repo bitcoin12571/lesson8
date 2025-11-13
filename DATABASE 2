@@ -1,0 +1,106 @@
+CREATE DATABASE Store;
+USE Store;
+CREATE TABLE Products(
+ID INT PRIMARY KEY,
+Name_Product VARCHAR(100),
+Price DECIMAL (10,2)
+)
+INSERT INTO Products(ID,Name_Product,PRICE)
+VALUES(1,'Laptop',200.99),
+		(2,'Mouse',190.99)
+SELECT *FROM Products
+--DE ACTUALIZAT PRETUL 
+UPDATE Products SET Price = 899.99 WHERE Name_Product = 'Laptop'
+UPDATE Products SET Price = 99.99 WHERE Name_Product = 'Mouse'
+DELETE FROM Products WHERE Name_Product = 'Mouse'
+
+
+
+
+CREATE TABLE Students (
+    StudentID INT,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Age INT,
+    Grade FLOAT,
+    City VARCHAR(50)
+);
+
+
+
+INSERT INTO Students VALUES
+(1, 'Alice', 'Johnson', 14, 8.5, 'New York'),
+(2, 'Bob', 'Smith', 14, 9.1, 'Chicago'),
+(3, 'Alice', 'Brown', 15, 7.3, 'New York'),
+(4, 'Daniel', 'Miller', 16, 8.5, 'Boston'),
+(5, 'Ella', 'White', 14, NULL, 'Chicago');
+
+SELECT  FirstName,Age,Grade FROM Students
+SELECT DISTINCT Age FROM Students
+
+--TOP SQL SERVER /LIMIT (My sql)
+SELECT TOP 3* FROM Students
+--UPPER
+SELECT UPPER (FirstName) AS CapsName ,LEN(FirstName) AS NameLenght From Students
+--CONCAT
+SELECT CONCAT (FirstName ,'',LastName ) AS FulllName FROM Students
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE DATABASE BookStores;
+USE BookStores;
+CREATE TABLE Bookq(
+ID INT IDENTITY(1,1) PRIMARY KEY ,
+Title VARCHAR(100),
+Price DECIMAL (10,2)
+);
+INSERT INTO Bookq(Title,Price)
+VALUES ('Harry Potter',12.33),
+		('The Greate Adventure ',100.55),
+		('Old Tales',50.99),
+		('Guguta',14.33),
+		('Mara',20.33)
+SELECT* FROM Bookq
+UPDATE Bookq SET Price = 19.99 WHERE Title = 'Mara' 
+DELETE FROM Bookq WHERE Title = 'Old Tales'
+
+CREATE TABLE Test (
+ID INT NOT NULL PRIMARY KEY ,
+namep VARCHAR (50),
+StartDate DATETIME ,
+endDate Datetime ,
+estRate money NOT NULL
+);
+INSERT INTO Test( namep,StartDate,endDate)
+VALUES (  'Harry','2020-02-12','2020-03-12' );
+
+INSERT INTO Test( ID ,namep,StartDate,endDate,estRate)
+VALUES (2,'Harry','2020-02-12','2020-03-12',1500 );
+
+ALTER TABLE notnull
+ALTER COLUMN estRate money null
