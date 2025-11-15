@@ -1,0 +1,35 @@
+CREATE DATABASE MovieS;
+USE MovieS;
+
+CREATE TABLE ffSS(
+
+	MovieId  INT PRIMARY KEY,
+	Title VARCHAR (100),
+	Genre VARCHAR(100),
+	ReleaseYear INT,
+	Rating DECIMAL (10,2)
+);
+
+INSERT INTO ffSS(MovieId,Title,Genre,ReleaseYear,Rating)
+VALUES
+	(1,'Inception','Sci-Fi',2010,8.8),
+	(2,'The Matrix','Sci-Fi',1999,8.7),
+	(3,'The Godfather','Crime',1972,9.2),
+	(4,'Pulp Fiction','Crime',1994,8.9),
+	(5,'Titanic','Romance',1997,7.8),
+	(6,'The Matrix','Sci-Fi',1999,8.7),
+	(7,'Inception','Sci-Fi',2010,8.8),
+	(8,'Interstellar','Sci-Fi',2014,8.6);
+
+SELECT * FROM ffSS;
+
+SELECT Title, Genre, Rating
+FROM ffSS;
+
+SELECT TOP 3 *
+FROM ffSS
+ORDER BY Rating DESC;
+ SELECT UPPER (Title) AS UpTitle,LEN(Title) AS NameLen
+FROM ffSS
+
+
