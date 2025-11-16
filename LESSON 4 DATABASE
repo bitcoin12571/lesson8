@@ -1,0 +1,48 @@
+CREATE TABLE Students (
+    StudentID INT,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Age INT,
+    Grade FLOAT,
+    City VARCHAR(50)
+);
+INSERT INTO Students VALUES
+(1, 'Alice', 'Johnson', 14, 8.5, 'New York'),
+(2, 'Bob', 'Smith', 14, 9.1, 'Chicago'),
+(3, 'Alice', 'Brown', 15, 7.3, 'New York'),
+(4, 'Daniel', 'Miller', 16, 8.5, 'Boston'),
+(5, 'Ella', 'White', 14, NULL, 'Chicago');
+--selectati doar aceia care traiesc in new york
+SELECT *FROM Students WHERE City = 'New York'
+--selectati tot doar care numele sa fie egal cu alice 
+SELECT *FROM Students WHERE FirstName ='Alice'
+SELECT *FROM Students WHERE FirstName ='Bob' AND LastName='Smith'
+SELECT *FROM Students WHERE FirstName ='Bob' OR LastName='White'
+SELECT *FROM Students WHERE  NOT   LastName ='White'
+SELECT *FROM Students WHERE Age = 14 and City = 'Chicago'
+
+--studenti a careia nota este egal cu 8.5
+SELECT * FROM Students WHERE Grade = 8.5
+--selectati toti studenti inafara de Alice 
+SELECT * FROM Students WHERE FirstName <>  'Alice'
+--selectati toti care id e mai mare egal cu unu 1
+SELECT * FROM Students WHERE StudentId >= 1
+
+SELECT * FROM Students WHERE Grade > 8 and StudentId <=4 and LastName <> 'Smith'
+
+SELECT * FROM Students WHERE  StudentId <=2 and StudentId <5 and Grade =10 or Grade<8
+
+SELECT *FROM Students WHERE Grade IS NOT NULL AND City ='New York'
+
+SELECT LastName FROM Students WHERE City IN ('Boston','New York','Cicago')
+
+SELECT * FROM Students WHERE Grade BETWEEN 8 and 9.5;
+
+
+SELECT  City  FROM Students WHERE City LIKE'New%';
+SELECT *FROM Students WHERE FirstName LIKE 'A____'
+SELECT *FROM Students WHERE FirstName LIKE '_o%'
+--care se incepe 
+SELECT * FROM Students WHERE FirsTName Like '[A-C]%'
+--negatia 
+SELECT * FROM Students WHERE City Like '[^N]%'
