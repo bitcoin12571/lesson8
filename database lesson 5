@@ -1,0 +1,151 @@
+CREATE DATABASE lalala
+USE lalala
+CREATE TABLE Locations (
+  OfficeLocation VARCHAR(100) PRIMARY KEY,
+  CityManager VARCHAR(100),
+  OpenDate DATE,
+  PhoneNumber VARCHAR(20)
+);
+
+INSERT INTO Locations (OfficeLocation, CityManager, OpenDate, PhoneNumber) 
+VALUES 
+  ('Houston', 'James Ford', '2018-03-01', '713-555-0111'),
+  ('New York', 'Sandra Lee', '2019-05-22', '212-555-0123'),
+  ('Boston', 'Derek Smith', '2020-07-10', '617-555-0145'),
+  ('Denver', 'Anna White', '2021-08-15', '303-555-0167'),
+  ('Miami', 'Michael Chen', '2017-09-30', '305-555-0175'),
+  ('San Diego', 'Linda Park', '2023-01-05', '619-555-0188'),
+  ('Chicago', 'Natalie Brown', '2016-02-18', '312-555-0199');
+
+SELECT * FROM Locations
+
+CREATE TABLE CarRentalss (
+    RentalID INT PRIMARY KEY,
+    CustomerName VARCHAR(100),
+    CarBrand VARCHAR(50),
+    CarModel VARCHAR(50),
+    CarType VARCHAR(20),
+    FuelType VARCHAR(20),
+    Transmission VARCHAR(20),
+    RentalDate DATE,
+    ReturnDate DATE,
+    RentalDays INT,
+    DailyRate DECIMAL(7,2),
+    TotalCost DECIMAL(10,2),
+    Rating INT,
+    OfficeLocation VARCHAR(100)
+);
+
+INSERT INTO CarRentalss (
+    RentalID, CustomerName, CarBrand, CarModel, CarType, FuelType,
+    Transmission, RentalDate, ReturnDate, RentalDays, DailyRate,
+    TotalCost, Rating, OfficeLocation
+)
+VALUES
+(1, 'Emma Lee', 'BMW', 'X5', 'Sedan', 'Hybrid', 'Manual', '2025-07-18', '2025-07-28', 10, 48.30, 483.00, 5, 'Houston'),
+(2, 'Olivia Clark', 'Tesla', 'Model 3', 'Pickup', 'Diesel', 'Automatic', '2025-06-08', '2025-06-10', 2, 97.13, 194.26, 3, 'New York'),
+(3, 'Alice Johnson', 'Tesla', 'Model 3', 'Sedan', 'Diesel', 'Automatic', '2025-05-20', '2025-05-22', 2, 45.61, 91.22, 5, 'Boston'),
+(4, 'Olivia Clark', 'Chevrolet', 'Malibu', 'Hatchback', 'Diesel', 'Automatic', '2025-07-24', '2025-07-26', 2, 72.62, 145.24, 3, 'New York'),
+(5, 'Alice Johnson', 'Hyundai', 'Elantra', 'Convertible', 'Diesel', 'Manual', '2025-05-18', '2025-05-29', 11, 119.11, 1310.21, 1, 'Denver'),
+(6, 'Laura Baker', 'Kia', 'Sportage', 'Convertible', 'Hybrid', 'Manual', '2025-05-28', '2025-05-31', 3, 55.34, 166.02, 3, 'Miami'),
+(7, 'Noah Brown', 'Honda', 'Civic', 'Hatchback', 'Electric', 'Manual', '2025-07-14', '2025-07-23', 9, 114.74, 1032.66, 4, 'Seattle'),
+(8, 'Laura Baker', 'Hyundai', 'Elantra', 'Pickup', 'Hybrid', 'Manual', '2025-07-01', '2025-07-05', 4, 39.51, 158.04, 1, 'San Diego'),
+(9, 'Emma Lee', 'Chevrolet', 'Malibu', 'Sedan', 'Electric', 'Automatic', '2025-06-19', '2025-06-27', 8, 70.56, 564.48, 2, 'San Diego'),
+(10, 'Maria Gomez', 'Toyota', 'Corolla', 'SUV', 'Electric', 'Manual', '2025-06-14', '2025-06-22', 8, 88.92, 711.36, 3, 'Chicago'),
+(11, 'Liam Davis', 'Ford', 'Explorer', 'SUV', 'Gasoline', 'Automatic', '2025-07-03', '2025-07-10', 7, 65.50, 458.50, 4, 'Los Angeles'),
+(12, 'Maria Gomez', 'Audi', 'A4', 'Sedan', 'Diesel', 'Manual', '2025-06-12', '2025-06-18', 6, 82.00, 492.00, 5, 'New York'),
+(13, 'Jake Turner', 'BMW', 'X5', 'Convertible', 'Hybrid', 'Automatic', '2025-05-22', '2025-05-26', 4, 110.75, 443.00, 3, 'San Francisco'),
+(14, 'Bob Smith', 'Kia', 'Sportage', 'Hatchback', 'Gasoline', 'Manual', '2025-06-30', '2025-07-02', 2, 49.99, 99.98, 2, 'Chicago'),
+(15, 'Olivia Clark', 'Ford', 'Explorer', 'Sedan', 'Hybrid', 'Automatic', '2025-06-11', '2025-06-14', 3, 61.00, 183.00, 4, 'Miami'),
+(16, 'Emma Lee', 'Hyundai', 'Elantra', 'Pickup', 'Diesel', 'Manual', '2025-07-01', '2025-07-10', 9, 73.40, 660.60, 3, 'Denver'),
+(17, 'Bob Smith', 'Honda', 'Civic', 'SUV', 'Electric', 'Automatic', '2025-06-15', '2025-06-20', 5, 99.90, 499.50, 5, 'Los Angeles'),
+(18, 'Liam Davis', 'Toyota', 'Corolla', 'Hatchback', 'Gasoline', 'Manual', '2025-07-02', '2025-07-09', 7, 46.80, 327.60, 2, 'Boston'),
+(19, 'Jake Turner', 'Tesla', 'Model 3', 'Sedan', 'Electric', 'Automatic', '2025-07-08', '2025-07-11', 3, 85.00, 255.00, 5, 'San Francisco'),
+(20, 'Maria Gomez', 'Audi', 'A4', 'SUV', 'Diesel', 'Manual', '2025-06-05', '2025-06-10', 5, 76.25, 381.25, 3, 'Seattle'),
+(21, 'Alice Johnson', 'Kia', 'Sportage', 'Convertible', 'Gasoline', 'Automatic', '2025-05-12', '2025-05-17', 5, 58.00, 290.00, 4, 'Houston'),
+(22, 'Emma Lee', 'Chevrolet', 'Malibu', 'SUV', 'Hybrid', 'Manual', '2025-06-04', '2025-06-08', 4, 69.00, 276.00, 2, 'Miami'),
+(23, 'Noah Brown', 'Hyundai', 'Elantra', 'Sedan', 'Diesel', 'Automatic', '2025-05-09', '2025-05-13', 4, 64.00, 256.00, 4, 'Chicago'),
+(24, 'Jake Turner', 'BMW', 'X5', 'Hatchback', 'Hybrid', 'Manual', '2025-07-15', '2025-07-20', 5, 115.00, 575.00, 5, 'San Diego'),
+(25, 'Laura Baker', 'Nissan', 'Altima', 'Sedan', 'Gasoline', 'Automatic', '2025-07-04', '2025-07-10', 6, 60.00, 360.00, 3, 'Seattle'),
+(26, 'Olivia Clark', 'Audi', 'A4', 'Pickup', 'Electric', 'Manual', '2025-06-02', '2025-06-07', 5, 72.75, 363.75, 4, 'Denver'),
+(27, 'Bob Smith', 'Ford', 'Explorer', 'SUV', 'Diesel', 'Automatic', '2025-05-01', '2025-05-06', 5, 67.50, 337.50, 2, 'New York'),
+(28, 'Emma Lee', 'Hyundai', 'Elantra', 'Hatchback', 'Gasoline', 'Manual', '2025-07-11', '2025-07-15', 4, 59.25, 237.00, 4, 'Los Angeles'),
+(29, 'Maria Gomez', 'Kia', 'Sportage', 'Sedan', 'Hybrid', 'Automatic', '2025-05-14', '2025-05-19', 5, 63.00, 315.00, 3, 'Boston'),
+(30, 'Liam Davis', 'Honda', 'Civic', 'SUV', 'Electric', 'Automatic', '2025-06-21', '2025-06-28', 7, 88.00, 616.00, 5, 'San Francisco'),
+(31, 'Alice Johnson', 'Toyota', 'Corolla', 'Convertible', 'Gasoline', 'Manual', '2025-05-25', '2025-05-29', 4, 53.50, 214.00, 2, 'Miami'),
+(32, 'Jake Turner', 'Tesla', 'Model 3', 'Hatchback', 'Electric', 'Automatic', '2025-07-20', '2025-07-25', 5, 91.00, 455.00, 5, 'Seattle'),
+(33, 'Laura Baker', 'Chevrolet', 'Malibu', 'Pickup', 'Diesel', 'Manual', '2025-06-18', '2025-06-22', 4, 68.40, 273.60, 3, 'Houston'),
+(34, 'Noah Brown', 'BMW', 'X5', 'SUV', 'Hybrid', 'Automatic', '2025-05-30', '2025-06-04', 5, 105.00, 525.00, 4, 'Chicago'),
+(35, 'Maria Gomez', 'Hyundai', 'Elantra', 'Sedan', 'Gasoline', 'Manual', '2025-07-16', '2025-07-20', 4, 47.75, 191.00, 2, 'Los Angeles'),
+(36, 'Liam Davis', 'Audi', 'A4', 'Convertible', 'Diesel', 'Automatic', '2025-06-07', '2025-06-10', 3, 78.00, 234.00, 4, 'New York'),
+(37, 'Emma Lee', 'Ford', 'Explorer', 'Hatchback', 'Gasoline', 'Manual', '2025-06-25', '2025-06-28', 3, 66.00, 198.00, 3, 'Miami'),
+(38, 'Jake Turner', 'Nissan', 'Altima', 'SUV', 'Diesel', 'Automatic', '2025-05-11', '2025-05-16', 5, 71.00, 355.00, 5, 'San Diego'),
+(39, 'Alice Johnson', 'Kia', 'Sportage', 'Pickup', 'Electric', 'Manual', '2025-07-13', '2025-07-19', 6, 77.50, 465.00, 4, 'Denver'),
+(40, 'Olivia Clark', 'Tesla', 'Model 3', 'Sedan', 'Electric', 'Automatic', '2025-06-09', '2025-06-15', 6, 86.25, 517.50, 5, 'San Francisco');
+
+SELECT * FROM CarRentalss
+
+SELECT CarRentalss.CustomerName, CarRentalss.OfficeLocation, Locations.CityManager FROM CarRentalss
+INNER JOIN Locations ON CarRentalss.OfficeLocation = Locations.OfficeLocation
+
+SELECT CarRentalss.CarBrand, CarRentalss.CarModel, Locations.PhoneNumber FROM CarRentalss
+INNER JOIN Locations ON CarRentalss.OfficeLocation = Locations.OfficeLocation
+
+SELECT CarRentalss.CustomerName, CarRentalss.OfficeLocation AS RentalOffice,
+Locations.CityManager, Locations.OfficeLocation AS LocationOffice
+FROM CarRentalss
+FULL OUTER JOIN Locations 
+ON CarRentalss.OfficeLocation = Locations.OfficeLocation
+
+SELECT CarRentalss.OfficeLocation, CarRentalss.CustomerName, Locations.CityManager
+FROM CarRentalss LEFT JOIN Locations ON CarRentalss.OfficeLocation = Locations.OfficeLocation
+
+SELECT Locations.OfficeLocation, Locations.CityManager, CarRentalss.CustomerName FROM CarRentalss
+RIGHT JOIN Locations ON CarRentalss.OfficeLocation = Locations.OfficeLocation
+
+SELECT CustomerName FROM CarRentalss
+UNION ALL 
+SELECT CityManager FROM Locations
+
+SELECT OfficeLocation FROM CarRentalss
+EXCEPT
+SELECT OfficeLocation FROM Locations
+
+SELECT CustomerName FROM CarRentalss
+EXCEPT
+SELECT CityManager FROM Locations
+
+SELECT OfficeLocation FROM CarRentalss
+INTERSECT
+SELECT OfficeLocation FROM Locations
+
+
+
+CREATE DATABASE U
+USE U
+--O-O
+
+CREATE TABLE users(
+userID INT PRIMARY KEY ,
+username VARCHAR(30)
+)
+
+CREATE TABLE USER_PROFILES (
+profileID INT PRIMARY KEY ,
+userID INT,
+profile_data VARCHAR (50)
+FOREIGN KEY (userID) REFERENCES users(userID)
+)
+--O-M
+CREATE TABLE departments (
+departmentname VARCHAR (50),
+departmentID INT PRIMARY KEY
+)
+CREATE TABLE employmees (
+employeeID INT PRIMARY KEY,
+employsName VARCHAR (50),
+departmentID INT, 
+FOREIGN KEY (departmentID)REFERENCES departments (departmentID)
+)
+
+
