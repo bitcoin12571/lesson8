@@ -1,0 +1,58 @@
+          CREATE DATABASE Hospital 
+USE Hospital
+
+CREATE TABLE Deprtaments (
+DepartmentId  INT PRIMARY KEY IDENTITY (1,1),
+NameDepartment  VARCHAR (100) NOT NULL ,
+FloorDepartment INT,
+Nbeds INT ,
+DailyPrice DECIMAL (10,2)
+)
+CREATE TABLE Doctors (
+DoctorId INT PRIMARY KEY IDENTITY,
+LastName varchar (100) NOT NULL,
+FirstName VARCHAR (100) NOT NULL,
+Phone VARCHAR (100),
+Email VARCHAR(100),
+Experience INT ,
+DepartmentId INT,
+FOREIGN KEY (DepartmentId) REFERENCES Deprtaments (DepartmentId)
+)
+CREATE TABLE Patient (
+PatientsId INT PRIMARY KEY IDENTITY ,
+LasrName VARCHAR(100) NOT NULL ,
+FirstName VARCHAR(100) NOT  NULL,
+Bdate DATE ,
+Phone VARCHAR(100),
+Adress VARCHAR (100)
+)
+
+CREATE TABLE Hospitalizations(
+HospitalizationsId INT PRIMARY KEY IDENTITY (1,1),
+AdmisionDate DATE  NOT NULL DEFAULT GETDATE(),
+DischargeDate DATE ,
+Diognostic VARCHAR (100),
+Medicines VARCHAR (100),
+DepartmentId INT NOT NULL ,
+DoctorId INT NOT NULL ,
+PatientsId INT NOT NULL 
+
+FOREIGN KEY (DepartmentId) REFERENCES Deprtaments (DepartmentId),
+FOREIGN KEY (DoctorId) REFERENCES Doctors(DoctorId),
+FOREIGN KEY (PatientsId) REFERENCES Patient (PatientsId)
+)
+CREATE TABLE Medicines(
+MedicinesId INT PRIMARY KEY IDENTITY (1,1),
+NameMedicne VARCHAR (100),
+Manufactuer VARCHAR(100),
+Price DECIMAL (10,2)
+)
+CREATE TABLE Hospitalizations_Medicines(
+HospitalizationsId INT,
+MedicinesId INT,
+Dose VARCHAR (50),
+Quantity VARCHAR (50)
+PRIMARY KEY (HospitalizationsId ,MedicinesId)
+FOREIGN KEY (HospitalizationsId) REFERENCES Hospitalizations (HospitalizationsId),
+FOREIGN KEY (MedicinesId) REFERENCES  Medicines (MedicinesId)
+)
