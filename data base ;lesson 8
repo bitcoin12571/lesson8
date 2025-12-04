@@ -74,3 +74,33 @@ EXEC sp_rename "Books Stock', 'Quantity', 'COLUMN:
 --primary key 
 alter table Bokss
 
+
+
+
+
+CREATE DATABASE MC
+USE MC 
+CREATE TABLE Borrowings(
+BorrowId  INT PRIMARY KEY ,
+BookId INT,
+BorrowDate DATE
+)
+ALTER TABLE Borrowings 
+ADD CONSTRAINT FK_Borrowings_Books 
+FOREIGN KEY (BookId) REFERENCES  Books (BookId)
+
+CREATE TABLE Book (
+BookId  INT PRIMARY KEY ,
+Pages INT,
+Title Varchar (50)
+)
+
+ALTER TABLE Book 
+ADD Genre VARCHAR(90),
+	Author VARCHAR (20),
+	Page INT 
+
+
+ALTER TABLE Book 
+ADD CONSTRAINT def_book_page DEFAULT 5 FOR page
+
