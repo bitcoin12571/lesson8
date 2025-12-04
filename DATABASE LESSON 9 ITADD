@@ -1,0 +1,102 @@
+CREATE DATABASE XRDCTVMJOK
+
+USE XRDCTVMJOK
+CREATE TABLE Borrowings(
+BorrowId INT PRIMARY KEY,
+BookId INT,
+BorrowDate DATE
+)
+
+CREATE TABLE Books(
+BookId INT PRIMARY KEY,
+Title VARCHAR(100)
+)
+
+ALTER TABLE Borrowings
+ADD CONSTRAINT FK_Borrowing_Books FOREIGN KEY (BookId) REFERENCES Books(BookId)
+
+ALTER TABLE Books
+ADD Genre VARCHAR(100), Author VARCHAR(100), Price DECIMAL(6, 2), Stock INT
+
+ALTER TABLE Books
+ADD CONSTRAINT def_book_stock DEFAULT 5 FOR Stock
+
+CREATE TABLE test(
+ID INT PRIMARY KEY IDENTITY (1, 1),
+NAME VARCHAR(100)
+)
+
+INSERT INTO test(NAME)
+VALUES ('Ana'),
+('Maria'),
+('Maxim')
+
+SELECT * FROM test
+
+TRUNCATE TABLE test
+
+CREATE TABLE Employee_Experience(
+EID INT PRIMARY KEY IDENTITY (1, 1),
+Name VARCHAR(100),
+Experience INT
+)
+
+CREATE TABLE Employee_Salary(
+EID INT PRIMARY KEY IDENTITY (1, 1),
+Name VARCHAR(100),
+Salary INT,
+Age INT
+)
+
+INSERT INTO Employee_Experience (Name, Experience)
+VALUES ('Akash', 4),
+('Harry', 3),
+('Pranjul', 2),
+('Raman', 1),
+('Isha', 2)
+
+INSERT INTO Employee_Salary(Name, Salary, Age)
+VALUES
+('Akash', 65000, 28),
+('Harry', 38000, 30),
+('Pranjul', 33500, 34),
+('Raman', 27000, 29),
+('Isha', 40000, 31)
+
+SELECT * FROM Employee_Experience
+SELECT * FROM Employee_Salary
+
+CREATE VIEW Employee_ID AS 
+SELECT EID, Name FROM Employee_Experience
+WHERE Experience <= 2
+
+SELECT * FROM Employee_ID
+
+CREATE VIEW EmployeeSalary AS
+SELECT Employee_Experience.Name, Employee_Salary.Salary FROM Employee_Salary, Employee_Experience
+WHERE Employee_Experience.EID = Employee_Salary.EID
+
+CREATE VIEW employeeSalary AS
+SELECT Employee_Experience.Name, Employee_Experience.Experience, Employee_Salary.Salary
+FROM Employee_Experience, Employee_Salary
+WHERE Employee_Experience.EID = Employee_Salary.EID
+
+CREATE VIEW EmployeeSalaryView AS
+SELECT ee.Name, ee.Experience, es.Salary, es.Age FROM Employee_Experience ee
+JOIN Employee_Salary es
+ON ee.EID = es.EID
+
+INSERT INTO Employee_Experience(EID, Name, Experience)
+VALUES (6, 'Ana', 5)
+
+SELECT * FROM Employee_Experience
+
+DELETE FROM Employee_Experience
+WHERE NAME = 'Ana'
+
+DELETE FROM Employee_Experience
+WHERE EID BETWEEN 1 AND 2 
+
+SELECT * FROM Employee_Experience
+
+------------------DROP VIEW EmployeeSalaryView--------------------
