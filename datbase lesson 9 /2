@@ -1,0 +1,100 @@
+CREATE DATABASE Shop
+USE Shop
+CREATE TABLE Customers (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    Email VARCHAR(100) UNIQUE,
+    PhoneNumber VARCHAR(20),
+    Address VARCHAR(255),
+    RegistrationDate DATETIME DEFAULT GETDATE()
+)
+
+
+CREATE TABLE Orders (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    CustomerId INT FOREIGN KEY REFERENCES Customers(Id),
+    OrderDate DATETIME DEFAULT GETDATE(),
+    TotalAmount DECIMAL(10,2) CHECK (TotalAmount >= 0),
+    Status VARCHAR(50) CHECK (Status IN ('Pending', 'Shipped', 'Delivered', 'Cancelled'))
+);
+
+CREATE TABLE Payments (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    OrderId INT FOREIGN KEY REFERENCES Orders(Id),
+    PaymentDate DATETIME DEFAULT GETDATE(),
+    Amount DECIMAL(10,2) CHECK (Amount > 0),
+    PaymentMethod VARCHAR(50) CHECK (PaymentMethod IN ('Cash', 'Card', 'Transfer'))
+);
+
+
+
+INSERT INTO Payments (PaymentDate, Amount, PaymentMethod)
+VALUES
+('2024-02-02',100.50,'Card'),
+('2024-02-03',200.00,'Cash'),
+('2024-02-04',150.75,'Transfer'),
+('2024-02-06',300.40,'Card'),
+('2024-02-07',75.60,'Cash'),
+('2024-02-08',120.90,'Transfer'),
+('2024-02-10',180.25,'Card'),
+('2024-02-11',210.75,'Cash'),
+('2024-02-09',95.30,'Card'),
+('2024-02-05',50.25,'Transfer');
+
+
+
+-- Customers
+INSERT INTO Customers (FirstName, LastName, Email, PhoneNumber, Address)
+VALUES
+('John','Doe','john.doe@example.com','1234567890','123 Main St'),
+('Jane','Smith','jane.smith@example.com','9876543210','456 Oak St'),
+('Alice','Johnson','alice.johnson@example.com','5557778888','789 Pine St'),
+('Robert','Brown','robert.brown@example.com','1112223333','101 Cedar St'),
+('Emily','Davis','emily.davis@example.com','4445556666','202 Maple St'),
+('Daniel','Miller','daniel.miller@example.com','7778889999','303 Birch St'),
+('Sophia','Wilson','sophia.wilson@example.com','9998887777','404 Elm St'),
+('Michael','Moore','michael.moore@example.com','6665554444','505 Ash St'),
+('Sarah','Taylor','sarah.taylor@example.com','3332221111','606 Walnut St'),
+('Ethan','Anderson','ethan.anderson@example.com','8887776666','707 Poplar St');
+
+INSERT INTO Orders (CustomerId, OrderDate, TotalAmount, Status)
+VALUES
+(1,'2024-02-01',100.50,'Pending'),
+(2,'2024-02-02',200.00,'Shipped'),
+(3,'2024-02-03',150.75,'Delivered'),
+(4,'2024-02-04',50.25,'Cancelled'),
+(5,'2024-02-05',300.40,'Pending'),
+(6,'2024-02-06',75.60,'Shipped'),
+(7,'2024-02-07',120.90,'Delivered'),
+(8,'2024-02-08',95.30,'Cancelled'),
+(9,'2024-02-09',180.25,'Pending'),
+(10,'2024-02-10',210.75,'Shipped');
+
+CREATE PROCEDURE AddOrder
+@CustomerId INT,
+@TotalAmount DECIMAL(10, 2),
+@Status VARCHAR(100)
+AS BEGIN
+
+SET NOCOUNT ON
+
+IF NOT EXISTS(SELECT 1 FROM Customers WHERE Id = @CustomerId)
+    BEGIN 
+    RAISEERROR('Customer does not exist', 16, 1)
+
+END
+
+IF @TotalAmount <= 0
+BEGIN
+    RAISEERROR('Total amount must be greater than 0.', 16, 1)
+    RETURN
+END
+GO
+
+INSERT INTO Orders(CustomerId, OrderDate, TotalAmount, Status)
+VALUES
+(@CustomerId, GETDATE(), @TotalAmount, @Status)
+
+EXEC AddOrder @CustomerId = 1, @TotalAmount = 150, @Status = 'Pending'
+EXCEP AddOrder @CustomerId = 999, @TotalAmount = 100.00,@Status = 'Pending'   
