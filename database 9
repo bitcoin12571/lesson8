@@ -1,0 +1,28 @@
+Friends_name_asc
+
+
+CREATE DATABASE QWERTY
+USE QWERTY
+
+CREATE TABLE Friends(
+Id INT PRIMARY KEY,
+Name varchar (100),
+city varchar (100),
+)
+INSERT INTO Friends(Id,Name,city)
+VALUES (1,'Matt', 'San.Francisco'),
+		(2,'Andrew', 'Chicago'),
+		(3,'Told', 'Atlanta'),
+		(4,'Nick', 'NYC'),
+		(5,'Zack', 'Seattle')
+SELECT * FROM Friends
+-- NON CLAUSTER SORT 
+CREATE INDEX Friends_name_asc ON Friends(Name ASC)
+-- CLAUSTER
+SELECT Name FROM Friends
+ORDER BY Name
+ 
+
+
+
+
