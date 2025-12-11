@@ -1,0 +1,91 @@
+CREATE DATABASE SchoolDB;
+USE SchoolDB;
+
+
+CREATE TABLE Students (
+    student_id INT  PRIMARY KEY IDENTITY ,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    date_of_birth DATE,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    enrollment_date DATE 
+);
+
+
+CREATE TABLE Courses (
+    course_id INT PRIMARY KEY IDENTITY ,
+    course_name VARCHAR(100) NOT NULL,
+    course_code VARCHAR(10) UNIQUE NOT NULL,
+    credits INT NOT NULL
+);
+
+
+CREATE TABLE Enrollments (
+    enrollment_id INT  PRIMARY KEY IDENTITY (1,1),
+    student_id INT,
+    course_id INT,
+    enrollment_date DATE,
+    grade VARCHAR(2),
+    FOREIGN KEY (student_id) REFERENCES Students(student_id) ON DELETE CASCADE,
+    FOREIGN KEY (course_id) REFERENCES Courses(course_id) ON DELETE CASCADE
+);
+
+
+
+-- Add students
+INSERT INTO Students (first_name, last_name, date_of_birth, email)
+VALUES
+    ('John', 'Doe', '2000-05-15', 'john.doe@example.com'),
+    ('Jane', 'Smith', '1999-09-30', 'jane.smith@example.com'),
+    ('Alice', 'Johnson', '2001-03-22', 'alice.johnson@example.com');
+
+-- Add courses
+INSERT INTO Courses (course_name, course_code, credits)
+VALUES
+    ('Mathematics 101', 'MATH101', 3),
+    ('History 101', 'HIST101', 4),
+    ('Computer Science 101', 'CS101', 3);
+
+-- Enroll students in courses
+INSERT INTO Enrollments (student_id, course_id, grade)
+VALUES
+    (1, 1, 'A'),
+    (1, 2, 'B'),
+    (2, 1, 'A'),
+    (2, 3, 'A'),
+    (3, 2, 'C');
+
+
+BACKUP DATABASE SchoolDB
+TO DISK = 'C:\Backup\SchoolDB_full.bak'
+WITH FORMAT,
+CHECKSUM,
+STATS = 10,
+DESCRIPTION = 'Full backup of db';
+
+
+
+ALTER DATABASE SchoolDB 
+SET RECOVERY FULL;
+
+BACKUP DATABASE SchoolDB 
+TO DISK ='C:\Backup\SchoolDB_full.bak'
+WITH FORMAT,
+NAME  = 'Full backup of db',
+CHECKSUM,
+STATS = 10
+
+BACKUP LOG SchoolDB
+TO DISK ='C:\Backup\SchoolDB_full.bak'
+WITH NOINIT,
+NAME = 'Transactional Log Backup of db',
+CHECKSUM ,STATS = 10 
+
+BACKUP DATABASE SchoolDB 
+TO DISK ='C:\Backup\SchoolDB_full.bak' 
+WITH DIFFERENTIAL , INIT
+
+SELECT * FROM fn_dblog(null,null)
+BACKUP LOG SchoolDB 
+TO DISK ='C:\Backup\SchoolDB_full.bak' 
+WITH NORECOVERY
