@@ -1,0 +1,104 @@
+ 
+
+
+CREATE DATABASE less12
+USE less12
+CREATE TABLE Products(
+ProductId INT PRIMARY KEY IDENTITY (1, 1),
+ProductName VARCHAR(100),
+Price DECIMAL(10, 2),
+Stock INT
+)
+INSERT INTO Products(ProductName, Price, Stock)
+VALUES
+('Laptop', 1200.00, 10),
+('Keyboard', 70.00, 25),
+('Headphones', 150.00, 50),
+('Smartphone', 900.00, 12),
+('Monitor', 300.00, 20)
+
+SELECT * FROM Products
+
+CREATE TABLE Orders(
+OrderID INT PRIMARY KEY IDENTITY(1, 1),
+CustomerName VARCHAR(100),
+Quantity INT,
+OrderDate DATE,
+ProductId INT,
+FOREIGN KEY (ProductId) REFERENCES Products(ProductId)
+)
+INSERT INTO Orders(CustomerName,  Quantity, OrderDate, ProductId)
+VALUES
+('Alice', 1, '2025-01-25', 1),
+('Bob', 4, '2024-10-02', 3),
+('Charlie', 2, '2025-12-14', 2),
+('Diana', 10, '2023-10-10', 4)
+
+--procedure without parameters
+CREATE PROCEDURE ShowProducts AS
+BEGIN
+	SELECT * FROM Products
+END
+EXEC ShowProducts
+
+CREATE PROCEDURE ShowOrders AS
+BEGIN
+	SELECT * FROM Orders
+END
+EXEC ShowOrders
+
+--procedure with parameters
+CREATE PROCEDURE GetProductsByPrice
+	@MinPrice DECIMAL (10, 2)
+AS
+BEGIN
+	SELECT * FROM Products 
+	WHERE Price >= @MinPrice
+END
+EXEC GetProductsByPrice @MinPrice = 300
+
+CREATE PROCEDURE GetOrdersByCustomers 
+	@CustomerName VARCHAR(100) 
+AS
+BEGIN
+	SELECT OrderID, CustomerName FROM Orders
+	WHERE CustomerName = @CustomerName
+END
+EXEC GetOrdersByCustomers @CustomerName = 'Alice'
+
+--count how many orders a product has
+CREATE PROCEDURE CountOrdersForProduct
+	@ProductID INT, 
+	@TotalOrders INT OUTPUT
+AS
+BEGIN
+	SELECT @TotalOrders = COUNT(*) FROM Orders
+	WHERE ProductId = @ProductID
+END
+
+DECLARE @RESULT INT
+
+EXEC CountOrdersForProduct 
+@ProductID = 1,
+@TotalOrders = @RESULT OUTPUT
+SELECT @RESULT AS TOTALORDERS
+
+--alter ShowProucts to show prices descending
+ALTER PROCEDURE ShowProducts
+AS
+BEGIN
+	SELECT * FROM Products
+	ORDER BY Price DESC
+END
+
+EXEC ShowProducts
+
+ALTER PROCEDURE GetOrdersByCustomers AS
+BEGIN
+	SELECT * FROM Orders
+	ORDER BY OrderDate DESC
+END
+
+EXEC GetOrdersByCustomers 
+
+DROP PROCEDURE ShowOrders
