@@ -1,0 +1,31 @@
+CREATE DATABASE ror
+USE ror
+CREATE TABLE Users (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    username VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(100) NOT NULL
+);
+
+INSERT INTO Users (username, password) VALUES
+('admin', 'password123'),
+('testuser', 'testpass'),
+('hacker', 'qwerty');
+--crearea unui login la nivel de server
+--least privlage application-user
+IF NOT EXISTS (SELECT 1 FROM sys.sql_logins WHERE name ='app_user')
+BEGIN 
+    CREATE LOGIN app_user WITH PASSWORD ='STRONG_PSS'
+END
+
+
+IF NOT EXISTS (SELECT 1 FROM sys.sql_logins WHERE name ='app_user')
+BEGIN 
+    CREATE User  app_user FOR LOGIN app_user
+END
+
+GRANT SELECT,INSERT,UPDATE,DELETE on  dbo.Users
+TO app_user
+
+SELECT name,type_desc,create_date 
+FROM sys.sql_logins
+WHERE name = 'app_user'
